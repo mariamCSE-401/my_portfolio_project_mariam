@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mariam Mahajabin | Portfolio</title>
+  <style>
+    /* Color Palette */
+    :root {
+      --primary: #6C63FF;
+      --primary-light: #8E85FF;
+      --secondary: #FF6584;
+      --accent: #FFB347;
+      --dark: #2D3748;
+      --light: #F7FAFC;
+      --success: #48BB78;
+      --info: #4299E1;
+      --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f9f9ff;
+      color: var(--dark);
+      line-height: 1.6;
+      padding-top: 80px; /* To account for fixed navbar */
+    }
+
+    /* Typography */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    /* Navigation */
+    #navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Welcome Section */
+    #welcome-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 2rem;
+      background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                  url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .welcome-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #welcome-section h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    #welcome-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #666;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Sections */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--gradient);
+      border-radius: 2px;
+    }
+
+    /* About Section */
+    #about {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      background-color: white;
+    }
+
+    .about-content {
+      flex: 1;
+    }
+
+    .about-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .about-image img {
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(108, 99, 255, 0.3);
+    }
+
+    #about p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      color: #666;
+    }
+
+    /* Education & Skills */
+    #education, #skills {
+      background-color: white;
+    }
+
+    .education-list, .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .education-item, .skills-item {
+      background: var(--light);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .education-item h3, .skills-item h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    /* Projects Section */
+    #projects {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-tile {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .project-tile:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-image {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-tile:hover .project-image img {
+      transform: scale(1.1);
+    }
+
+    .project-info {
+      padding: 1.5rem;
+    }
+
+    .project-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .project-info p {
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      background: rgba(108, 99, 255, 0.1);
+      color: var(--primary);
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-links a {
+      flex: 1;
+      text-align: center;
+      padding: 0.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .view-btn {
+      background: var(--gradient);
+      color: white;
+    }
+
+    .view-btn:hover {
+      background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary) 100%);
+    }
+
+    /* Contact Section */
+    #contact {
+      text-align: center;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .contact-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      color: var(--primary);
+    }
+
+    .contact-link i {
+      font-size: 1.5rem;
+    }
+
+    /* Profile Link */
+    #profile-link {
+      display: inline-block;
+      margin-top: 2rem;
+      background: var(--gradient);
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    #profile-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(108, 99, 255, 0.4);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background: var(--gradient);
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(108, 99, 255, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      margin-left: 1rem;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1rem 0;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .copyright {
+      margin-top: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      #about {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-content {
+        margin-bottom: 3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #navbar {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .nav-links {
+        margin-top: 1rem;
+        gap: 1rem;
+      }
+
+      section {
+        padding: 4rem 1rem;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #welcome-section h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="logo">Mariam Mahajabin</div>
+    <div class="nav-links">
+      <a href="#welcome-section">Home</a>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section id="welcome-section">
+    <div class="welcome-content">
+      <h1>Welcome to My Portfolio</h1>
+      <p>I'm Mariam Mahajabin, a Computer Science student passionate about web development and software engineering.</p>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-title">
+      <h2>About Me</h2>
+    </div>
+    <div class="about-content">
+      <p>Hello! I'm <strong>Mariam Mahajabin</strong>, currently studying in the Department of Computer Science and Engineering (CSE) at Jahangirnagar University. I live in Dhaka, Bangladesh.</p>
+      <p>My father's name is Azharul Islam and my mother's name is Samsun Nahar. I have one elder sister who has completed her Master's in Physics from Chittagong University.</p>
+      <p>My dream is to become a successful <strong>Software Engineer</strong>.</p>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-title">
+      <h2>Education</h2>
+    </div>
+    <div class="education-list">
+      <div class="education-item">
+        <h3>University</h3>
+        <p>Jahangirnagar University</p>
+        <p>Department of Computer Science and Engineering (CSE)</p>
+      </div>
+      <div class="education-item">
+        <h3>HSC</h3>
+        <p>Shaheed Bir Uttam Lt. Anwar Girls College</p>
+      </div>
+      <div class="education-item">
+        <h3>SSC</h3>
+        <p>Bangladesh Navy School</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-title">
+      <h2>Skills</h2>
+    </div>
+    <div class="skills-list">
+      <div class="skills-item">
+        <h3>Programming Languages</h3>
+        <ul>
+          <li>C / C++</li>
+          <li>Java</li>
+          <li>Python</li>
+        </ul>
+      </div>
+      <div class="skills-item">
+        <h3>Web Development</h3>
+        <ul>
+          <li>HTML5</li>
+          <li>CSS3</li>
+        </ul>
+      </div>
+      <div class="skills-item">
+        <h3>Other Skills</h3>
+        <ul>
+          <li>Problem Solving</li>
+          <li>Data Structures</li>
+          <li>Algorithms</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-title">
+      <h2>Projects</h2>
+      <p>Here are some of my recent projects showcasing my skills in web development</p>
+    </div>
+    
+    <div class="projects-grid">
+      <!-- Portfolio Project -->
+      <div class="project-tile">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Portfolio Website">
+        </div>
+        <div class="project-info">
+          <h3>Portfolio Website</h3>
+          <p>A personal portfolio website to showcase my profile and projects.</p>
+          <div class="project-tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+          </div>
+          <div class="project-links">
+            <a href="portfolionew.html" class="view-btn">View Project</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Customer Feedback Survey -->
+      <div class="project-tile">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Survey Form">
+        </div>
+        <div class="project-info">
+          <h3>Customer Feedback Survey</h3>
+          <p>A responsive survey form with modern styling and validation.</p>
+          <div class="project-tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">Form Design</span>
+          </div>
+          <div class="project-links">
+            <a href="survey.html" class="view-btn">View Project</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Tribute Page -->
+      <div class="project-tile">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1516841273335-e39b37888115?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Tribute Page">
+        </div>
+        <div class="project-info">
+          <h3>Tribute to Nelson Mandela</h3>
+          <p>An informative tribute page with timeline and responsive design.</p>
+          <div class="project-tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">Responsive</span>
+          </div>
+          <div class="project-links">
+            <a href="tribute.html" class="view-btn">View Project</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- C++ Documentation -->
+      <div class="project-tile">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Technical Documentation">
+        </div>
+        <div class="project-info">
+          <h3>C++ Documentation</h3>
+          <p>A technical documentation page with side navigation and code examples.</p>
+          <div class="project-tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">Technical Writing</span>
+          </div>
+          <div class="project-links">
+            <a href="technical documentation.html" class="view-btn">View Project</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Food Delivery -->
+      <div class="project-tile">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Product Landing Page">
+        </div>
+        <div class="project-info">
+          <h3>QuickBite Food Delivery</h3>
+          <p>A product landing page for a food delivery service with responsive design.</p>
+          <div class="project-tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">Responsive</span>
+            <span class="tag">Flexbox</span>
+          </div>
+          <div class="project-links">
+            <a href="product landing.html" class="view-btn">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-title">
+      <h2>Contact Me</h2>
+      <p>Feel free to reach out for collaborations or just a friendly hello</p>
+    </div>
+    
+    <div class="contact-links">
+      <a href="mailto:20220655007mariam@juniv.edu" class="contact-link">
+        <i class="fas fa-envelope"></i> 20220655007mariam@juniv.edu
+      </a>
+      <a href="#" class="contact-link">
+        <i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh
+      </a>
+      <a href="#" class="contact-link">
+        <i class="fas fa-phone"></i> +880 1XXX XXXXXX
+      </a>
+    </div>
+    
+    <div style="text-align: center; margin-top: 2rem;">
+      <a id="profile-link" href="https://github.com/mariamCSE-401" target="_blank">
+        <i class="fab fa-github"></i> View My GitHub Profile
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#welcome-section">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <p class="copyright">&copy; 2025 Mariam Mahajabin. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
