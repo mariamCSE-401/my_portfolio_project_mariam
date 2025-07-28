@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tribute to Nelson Mandela</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        #main {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        #title {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2.8rem;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #e74c3c;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        
+        #img-div {
+            background: #ecf0f1;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        #image {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        #img-caption {
+            margin-top: 15px;
+            color: #34495e;
+            font-size: 0.95rem;
+        }
+        
+        #tribute-info {
+            margin: 40px 0;
+        }
+        
+        #tribute-info h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+        
+        #tribute-info ul {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        #tribute-info li {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .highlight {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        
+        blockquote {
+            font-style: italic;
+            background: #f9f9f9;
+            border-left: 5px solid #e74c3c;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        blockquote p {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        #tribute-link {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        #tribute-link:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .link-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 650px) {
+            #main {
+                margin: 15px;
+                padding: 20px;
+            }
+            
+            #title {
+                font-size: 2rem;
+            }
+            
+            #tribute-info ul {
+                padding-left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main id="main">
+        <h1 id="title">Nelson Mandela</h1>
+        <p class="subtitle">The father of South Africa's democracy</p>
+        
+        <div id="img-div">
+            <img id="image" src="https://upload.wikimedia.org/wikipedia/commons/0/02/Nelson_Mandela_1994.jpg" alt="Nelson Mandela smiling">
+            <div id="img-caption">Nelson Mandela in 1994, shortly after becoming South Africa's first black president</div>
+        </div>
+        
+        <div id="tribute-info">
+            <h2>The Life and Legacy of Madiba</h2>
+            <ul>
+                <li><span class="highlight">1918</span> - Born Rolihlahla Mandela in Mvezo, South Africa</li>
+                <li><span class="highlight">1943</span> - Joined the African National Congress (ANC)</li>
+                <li><span class="highlight">1952</span> - Opened South Africa's first black law firm with Oliver Tambo</li>
+                <li><span class="highlight">1962</span> - Arrested and sentenced to 5 years in prison</li>
+                <li><span class="highlight">1964</span> - Sentenced to life imprisonment at the Rivonia Trial</li>
+                <li><span class="highlight">1990</span> - Released after 27 years in prison</li>
+                <li><span class="highlight">1993</span> - Awarded the Nobel Peace Prize</li>
+                <li><span class="highlight">1994</span> - Elected as South Africa's first black president</li>
+                <li><span class="highlight">1999</span> - Stepped down after one term as president</li>
+                <li><span class="highlight">2013</span> - Passed away at age 95</li>
+            </ul>
+            
+            <blockquote>
+                <p>"It always seems impossible until it's done."</p>
+                <p>"No one is born hating another person because of the color of his skin, or his background, or his religion. People must learn to hate, and if they can learn to hate, they can be taught to love, for love comes more naturally to the human heart than its opposite."</p>
+                <cite>— Nelson Mandela</cite>
+            </blockquote>
+        </div>
+        
+        <div class="link-container">
+            <a id="tribute-link" href="https://en.wikipedia.org/wiki/Nelson_Mandela" target="_blank">Read more about Mandela's extraordinary life</a>
+        </div>
+    </main>
+</body>
+</html>
